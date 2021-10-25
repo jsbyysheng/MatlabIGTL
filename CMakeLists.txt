@@ -6,7 +6,7 @@ IF(COMMAND cmake_policy)
 ENDIF(COMMAND cmake_policy)
 
 ## build for OpenIGTLink Version 2 (TDATA, POINT, BIND, etc.)
-option(OpenIGTLink_PROTOCOL_VERSION_2 "Build Library for Protocol Version 2" OFF)
+option(OpenIGTLink_PROTOCOL_VERSION_2 "Build Library for Protocol Version 2" ON)
 
 IF(OpenIGTLink_PROTOCOL_VERSION_2)
   SET(OpenIGTLink_PROTOCOL_VERSION "2")
@@ -16,7 +16,9 @@ ENDIF(OpenIGTLink_PROTOCOL_VERSION_2)
 
 
 ## find the OpenIGTLink
-FIND_PACKAGE(OpenIGTLink REQUIRED)
+find_package(OpenIGTLink REQUIRED
+  PATHS ../OpenIGTLink-build
+)
 INCLUDE(${OpenIGTLink_USE_FILE})
 
 ##FIND_PACKAGE(Matlab REQUIRED) 
@@ -93,9 +95,16 @@ FOREACH (dir ${OpenIGTLink_INCLUDE_DIRS})
   SET(INCDIR ${INCDIR} -I${dir})
 ENDFOREACH(dir ${OpenIGTLink_INCLUDE_DIRS})
 
+SET(INCDIR ${INCDIR} -I${OpenIGTLink_DIR})
+SET(INCDIR ${INCDIR} -I${OpenIGTLink_SOURCE_DIR}/Source)
+SET(INCDIR ${INCDIR} -I${OpenIGTLink_SOURCE_DIR}/Source/igtlutil)
+SET(INCDIR ${INCDIR} -I${OpenIGTLink_SOURCE_DIR}/Source/VideoStreaming)
+SET(INCDIR ${INCDIR} -I${OpenIGTLink_SOURCE_DIR}/Source/WebSocket)
 SET(INCDIR ${INCDIR} -I${CMAKE_CURRENT_SOURCE_DIR})
 
 SET(LIBDIR
+  -L${OpenIGTLink_DIR}/bin/Release
+  -L${OpenIGTLink_DIR}/lib/Release
   -L${OpenIGTLink_LIBRARY_DIRS}
   -L${CMAKE_CURRENT_BINARY_DIR}
 )
