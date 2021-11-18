@@ -55,10 +55,10 @@ namespace igtl
 class IGTLCommon_EXPORT MexServerSocket : public MexSocket
 {
 public:
-  typedef MexServerSocket              Self;
-  typedef MexSocket  Superclass;
-  typedef SmartPointer<Self>        Pointer;
-  typedef SmartPointer<const Self>  ConstPointer;
+  // typedef MexServerSocket              Self;
+  // typedef MexSocket  Superclass;
+  // typedef SmartPointer<Self>        Pointer;
+  // typedef SmartPointer<const Self>  ConstPointer;
 
   igtlTypeMacro(igtl::MexServerSocket, igtl::MexSocket);
   igtlNewMacro(igtl::MexServerSocket);

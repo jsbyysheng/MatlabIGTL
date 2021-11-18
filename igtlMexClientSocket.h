@@ -56,10 +56,10 @@ class ServerSocket;
 class IGTLCommon_EXPORT MexClientSocket : public MexSocket
 {
 public:
-  typedef MexClientSocket              Self;
-  typedef MexSocket                    Superclass;
-  typedef SmartPointer<Self>        Pointer;
-  typedef SmartPointer<const Self>  ConstPointer;
+  // typedef MexClientSocket              Self;
+  // typedef MexSocket                    Superclass;
+  // typedef SmartPointer<Self>        Pointer;
+  // typedef SmartPointer<const Self>  ConstPointer;
 
   igtlTypeMacro(igtl::MexClientSocket, igtl::MexSocket)
   igtlNewMacro(igtl::MexClientSocket);

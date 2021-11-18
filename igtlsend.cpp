@@ -186,10 +186,14 @@ int procTransformData(int sd, const char* name, const mxArray *ptr)
   mat[2][0] = trans[2];  mat[2][1] = trans[6];  mat[2][2] = trans[10]; mat[2][3] = trans[14];
   mat[3][0] = trans[3];  mat[3][1] = trans[7];  mat[3][2] = trans[11]; mat[3][3] = trans[15];
   
-  float norm_i[] = {mat[0][0], mat[1][0], mat[2][0]};
-  float norm_j[] = {mat[0][1], mat[1][1], mat[2][1]};
-  float norm_k[] = {mat[0][2], mat[1][2], mat[2][2]};
-  float pos[]    = {mat[0][3], mat[1][3], mat[2][3]};
+  // float norm_i[] = {mat[0][0], mat[1][0], mat[2][0]};
+  // float norm_j[] = {mat[0][1], mat[1][1], mat[2][1]};
+  // float norm_k[] = {mat[0][2], mat[1][2], mat[2][2]};
+  // float pos[]    = {mat[0][3], mat[1][3], mat[2][3]};
+  float norm_i[] = {(float)mat[0][0], (float)mat[1][0], (float)mat[2][0]};
+  float norm_j[] = {(float)mat[0][1], (float)mat[1][1], (float)mat[2][1]};
+  float norm_k[] = {(float)mat[0][2], (float)mat[1][2], (float)mat[2][2]};
+  float pos[] = {(float)mat[0][3], (float)mat[1][3], (float)mat[2][3]};
 
   float a[3];
   // calculate absolutes
@@ -274,10 +278,14 @@ template<typename DATATYPE> void procTypedImageData(int sd, const char* name, co
   size[0] = s[0]; size[1] = s[1]; size[2] = (ndim == 3)? s[2] : 1;
   double*     trans    = mxGetPr(trField);
 
-  float norm_i[] = {trans[0], trans[1], trans[2]};
-  float norm_j[] = {trans[4], trans[5], trans[6]};
-  float norm_k[] = {trans[8], trans[9], trans[10]};
-  float pos[]    = {trans[12], trans[13], trans[14]};
+  // float norm_i[] = {trans[0], trans[1], trans[2]};
+  // float norm_j[] = {trans[4], trans[5], trans[6]};
+  // float norm_k[] = {trans[8], trans[9], trans[10]};
+  // float pos[]    = {trans[12], trans[13], trans[14]};
+  float norm_i[] = {(float)trans[0], (float)trans[1], (float)trans[2]};
+  float norm_j[] = {(float)trans[4], (float)trans[5], (float)trans[6]};
+  float norm_k[] = {(float)trans[8], (float)trans[9], (float)trans[10]};
+  float pos[] = {(float)trans[12], (float)trans[13], (float)trans[14]};
   float spacing[3];
   int svoffset[] = {0, 0, 0};
 

@@ -76,10 +76,10 @@ class SocketCollection;
 class IGTLCommon_EXPORT MexSocket : public Object
 {
  public:
-  typedef MexSocket              Self;
-  typedef Object  Superclass;
-  typedef SmartPointer<Self>        Pointer;
-  typedef SmartPointer<const Self>  ConstPointer;
+  // typedef MexSocket              Self;
+  // typedef Object  Superclass;
+  // typedef SmartPointer<Self>        Pointer;
+  // typedef SmartPointer<const Self>  ConstPointer;
 
   igtlTypeMacro(igtl::MexSocket, igtl::Object)
   igtlNewMacro(igtl::MexSocket);
